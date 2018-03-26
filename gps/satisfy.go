@@ -181,7 +181,7 @@ func (s *solver) checkDepsConstraintsAllowable(a atomWithPackages, cdep complete
 func (s *solver) checkDepsDisallowsSelected(a atomWithPackages, cdep completeDep) error {
 	dep := cdep.workingConstraint
 	selected, exists := s.sel.selected(dep.Ident)
-	if exists && !s.vUnify.matches(dep.Ident, dep.Constraint, selected.a.v) {
+	if exists && !s.vUnify.matches(dep.Ident, dep.Constraint, selected.a.v) && s.rd.rootAtom().a.id != selected.a.id {
 		s.fail(dep.Ident)
 
 		return &constraintNotAllowedFailure{
