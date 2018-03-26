@@ -10,9 +10,9 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/golang/dep"
-	"github.com/golang/dep/gps"
-	"github.com/golang/dep/internal/importers/base"
+	"github.com/asticode/dep"
+	"github.com/asticode/dep/gps"
+	"github.com/asticode/dep/internal/importers/base"
 	"github.com/pkg/errors"
 	"gopkg.in/yaml.v2"
 )

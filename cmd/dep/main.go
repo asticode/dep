@@ -19,8 +19,8 @@ import (
 	"strings"
 	"text/tabwriter"
 
-	"github.com/golang/dep"
-	"github.com/golang/dep/internal/fs"
+	"github.com/asticode/dep"
+	"github.com/asticode/dep/internal/fs"
 )
 
 var (

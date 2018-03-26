@@ -10,10 +10,10 @@ import (
 	"path/filepath"
 	"sort"
 
-	"github.com/golang/dep/gps"
-	"github.com/golang/dep/gps/paths"
-	"github.com/golang/dep/gps/pkgtree"
-	"github.com/golang/dep/internal/fs"
+	"github.com/asticode/dep/gps"
+	"github.com/asticode/dep/gps/paths"
+	"github.com/asticode/dep/gps/pkgtree"
+	"github.com/asticode/dep/internal/fs"
 	"github.com/pkg/errors"
 )
 

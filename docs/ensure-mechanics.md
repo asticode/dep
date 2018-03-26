@@ -32,7 +32,7 @@ We can represent these two functions visually:
 
 This is `dep ensure` - the typical flow, used when a `Gopkg.toml` already exists. When a project does not yet have a `Gopkg.toml`, `dep init` can generate one. The essential flow remains the same, but with changed inputs: instead of reading from an existing `Gopkg.toml` file, `dep init` constructs one out of data inferred from the user's GOPATH, and/or [a metadata file from another tool](). (In other words, `dep init` automatically migrates a project from other approaches to organizing dependencies.)
 
-This diagram directly corresponds directly to code, as well. The solving function is actually split into a constructor and a method - we first create a [`Solver`](https://godoc.org/github.com/golang/dep/gps#Solver) type, then call its `Solve()` method. The inputs to the constructor are wrapped up in a [`SolveParameters`](https://godoc.org/github.com/golang/dep/gps#SolveParameters), which should look familiar:
+This diagram directly corresponds directly to code, as well. The solving function is actually split into a constructor and a method - we first create a [`Solver`](https://godoc.org/github.com/asticode/dep/gps#Solver) type, then call its `Solve()` method. The inputs to the constructor are wrapped up in a [`SolveParameters`](https://godoc.org/github.com/asticode/dep/gps#SolveParameters), which should look familiar:
 
 ```go
 type SolveParameters struct {
@@ -42,7 +42,7 @@ type SolveParameters struct {
 }
 ```
 
-The vendoring function is [`gps.WriteDepTree()`](https://godoc.org/github.com/golang/dep/gps#WriteDepTree). While it takes a handful of arguments, the relevant one is a [`gps.Lock`](https://godoc.org/github.com/golang/dep/gps#Lock) - an interface representing an abstracted form of the data held in a `Gopkg.lock`.
+The vendoring function is [`gps.WriteDepTree()`](https://godoc.org/github.com/asticode/dep/gps#WriteDepTree). While it takes a handful of arguments, the relevant one is a [`gps.Lock`](https://godoc.org/github.com/asticode/dep/gps#Lock) - an interface representing an abstracted form of the data held in a `Gopkg.lock`.
 
 The four state system, and these functional flows through it, are the foundation on which all of dep's behavior is built. If you want to understand dep's mechanics, keep this model at the forefront of your mind.
 
@@ -51,9 +51,9 @@ The four state system, and these functional flows through it, are the foundation
 One of dep's design goals is that both of its "functions" minimize both the work they do, and the change they induce in their respective results. (Note: "minimize" is not currently formally defined with respect to a cost function.) Consequently, both functions peek ahead at the pre-existing result to understand what work actually needs to be done:
 
 * The solving function checks the existing `Gopkg.lock` to determine if all of its inputs (project import statements + `Gopkg.toml` rules) are satisfied. If they are, the solving function can be bypassed entirely. If not, the solving function proceeds, but attempts to change as few of the selections in `Gopkg.lock` as possible.
-  * WIP: The current implementation's check relies on a coarse heuristic check that can be wrong in some cases. There is a [plan to fix this](https://github.com/golang/dep/issues/1496).
+  * WIP: The current implementation's check relies on a coarse heuristic check that can be wrong in some cases. There is a [plan to fix this](https://github.com/asticode/dep/issues/1496).
 * The vendoring function hashes each discrete project already in `vendor/` to see if the code present on disk is what `Gopkg.lock` indicates it should be. Only projects that deviate from expectations are written out.
-  * WIP: the hashing check is generally referred to as "vendor verification," and [is not yet complete](https://github.com/golang/dep/issues/121). Without this verification, dep is blind to whether code in `vendor/` is correct or not; as such, dep must defensively re-write all projects to ensure the state of `vendor/` is correct.
+  * WIP: the hashing check is generally referred to as "vendor verification," and [is not yet complete](https://github.com/asticode/dep/issues/121). Without this verification, dep is blind to whether code in `vendor/` is correct or not; as such, dep must defensively re-write all projects to ensure the state of `vendor/` is correct.
 
 Of course, it's possible that, in peeking ahead, either function might discover that the pre-existing result is already correct - so no work need be done at all. Either way, when each function completes, we can be sure that the output, changed or not, is correct with respect to the inputs. In other words, the inputs and outputs are "in sync." Indeed, being in sync is the "known good state" of dep; `dep ensure` (without flags) guarantees that if it exits 0, all four states in the project are in sync.
 
@@ -146,7 +146,7 @@ Ordinarily, when the solver encounters a project name for which there's an entry
 
 If `-update` is passed with no arguments, then `ChangeAll` is set to `true`, resulting in the solver ignoring `Gopkg.lock` for all newly-encountered project names. This is equivalent to explicitly passing all of your dependences as arguments to `dep ensure -update`, as well as `rm Gopkg.lock && dep ensure`. Again, however, neither of these approaches are recommended, and future changes may introduce subtle differences.
 
-When a version hint from `Gopkg.lock` is not placed at the head of the version queue, it means that dep will explore the set of possible versions for a particular dependency. This exploration is performed according to a [fixed sort order](https://godoc.org/github.com/golang/dep/gps#SortForUpgrade), where newer versions are tried first, resulting in an update.
+When a version hint from `Gopkg.lock` is not placed at the head of the version queue, it means that dep will explore the set of possible versions for a particular dependency. This exploration is performed according to a [fixed sort order](https://godoc.org/github.com/asticode/dep/gps#SortForUpgrade), where newer versions are tried first, resulting in an update.
 
 For example, say there is a project, `github.com/foo/bar`, with the following versions:
 
@@ -197,4 +197,4 @@ The key takeaway here is that `-update`'s behavior is governed by the type of co
 | `version` (non-range semver)         | `"=1.0.0"`         | Change can only occur if the upstream release was moved (e.g. `git push --force <tag>`)                                                   |
 | `version` (non-semver)               | `"foo"`            | Change can only occur if the upstream release was moved                                                                                   |
 | `revision`                           | `aabbccd...`       | No change is possible                                                                                                                     |
-| (none)                               | (none)             | The first version that works, according to [the sort order](https://godoc.org/github.com/golang/dep/gps#SortForUpgrade) (not recommended) |
+| (none)                               | (none)             | The first version that works, according to [the sort order](https://godoc.org/github.com/asticode/dep/gps#SortForUpgrade) (not recommended) |

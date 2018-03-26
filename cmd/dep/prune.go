@@ -14,10 +14,10 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/golang/dep"
-	"github.com/golang/dep/gps"
-	"github.com/golang/dep/gps/pkgtree"
-	"github.com/golang/dep/internal/fs"
+	"github.com/asticode/dep"
+	"github.com/asticode/dep/gps"
+	"github.com/asticode/dep/gps/pkgtree"
+	"github.com/asticode/dep/internal/fs"
 	"github.com/pkg/errors"
 )
 

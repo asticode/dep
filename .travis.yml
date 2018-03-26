@@ -5,7 +5,7 @@ notifications:
 jobs:
   include:
     - stage: test
-      go_import_path: github.com/golang/dep
+      go_import_path: github.com/asticode/dep
       install:
         - make get-deps
         - npm install -g codeclimate-test-reporter
@@ -22,7 +22,7 @@ jobs:
     - &simple-test
       go: 1.9.x
       stage: test
-      go_import_path: github.com/golang/dep
+      go_import_path: github.com/asticode/dep
       install: skip
       env:
         - DEPTESTBYPASS501=1
@@ -49,7 +49,7 @@ jobs:
         - make test
     - go: 1.10.x
       stage: deploy
-      go_import_path: github.com/golang/dep
+      go_import_path: github.com/asticode/dep
       install: skip
       script: skip
       before_deploy:

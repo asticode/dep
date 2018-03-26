@@ -10,9 +10,9 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/golang/dep"
-	"github.com/golang/dep/gps"
-	_ "github.com/golang/dep/internal/test" // DO NOT REMOVE, allows go test ./... -update to work
+	"github.com/asticode/dep"
+	"github.com/asticode/dep/gps"
+	_ "github.com/asticode/dep/internal/test" // DO NOT REMOVE, allows go test ./... -update to work
 )
 
 func TestFeedback_Constraint(t *testing.T) {

@@ -10,7 +10,7 @@ import (
 	"io"
 	"sort"
 
-	"github.com/golang/dep/gps"
+	"github.com/asticode/dep/gps"
 	"github.com/pelletier/go-toml"
 	"github.com/pkg/errors"
 )

@@ -10,7 +10,7 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/golang/dep/internal/fs"
+	"github.com/asticode/dep/internal/fs"
 	"github.com/pkg/errors"
 )
 

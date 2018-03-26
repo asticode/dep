@@ -7,15 +7,15 @@ package importers
 import (
 	"log"
 
-	"github.com/golang/dep"
-	"github.com/golang/dep/gps"
-	"github.com/golang/dep/internal/importers/glide"
-	"github.com/golang/dep/internal/importers/glock"
-	"github.com/golang/dep/internal/importers/godep"
-	"github.com/golang/dep/internal/importers/govend"
-	"github.com/golang/dep/internal/importers/govendor"
-	"github.com/golang/dep/internal/importers/gvt"
-	"github.com/golang/dep/internal/importers/vndr"
+	"github.com/asticode/dep"
+	"github.com/asticode/dep/gps"
+	"github.com/asticode/dep/internal/importers/glide"
+	"github.com/asticode/dep/internal/importers/glock"
+	"github.com/asticode/dep/internal/importers/godep"
+	"github.com/asticode/dep/internal/importers/govend"
+	"github.com/asticode/dep/internal/importers/govendor"
+	"github.com/asticode/dep/internal/importers/gvt"
+	"github.com/asticode/dep/internal/importers/vndr"
 )
 
 // Importer handles importing configuration from other dependency managers into

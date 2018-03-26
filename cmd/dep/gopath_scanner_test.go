@@ -10,9 +10,9 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/golang/dep"
-	"github.com/golang/dep/gps"
-	"github.com/golang/dep/internal/test"
+	"github.com/asticode/dep"
+	"github.com/asticode/dep/gps"
+	"github.com/asticode/dep/internal/test"
 )
 
 const testProject1 = "github.com/sdboyer/deptest"

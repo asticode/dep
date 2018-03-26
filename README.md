@@ -2,20 +2,20 @@
 <p align="center">
   <a href="https://travis-ci.org/golang/dep"><img src="https://travis-ci.org/golang/dep.svg?branch=master" alt="Build Status"></img></a>
   <a href="https://ci.appveyor.com/project/golang/dep"><img src="https://ci.appveyor.com/api/projects/status/github/golang/dep?svg=true&branch=master&passingText=Windows%20-%20OK&failingText=Windows%20-%20failed&pendingText=Windows%20-%20pending" alt="Windows Build Status"></a>
-  <a href="https://goreportcard.com/report/github.com/golang/dep"><img src="https://goreportcard.com/badge/github.com/golang/dep" /></a>
+  <a href="https://goreportcard.com/report/github.com/asticode/dep"><img src="https://goreportcard.com/badge/github.com/asticode/dep" /></a>
 </p>
 
 ## Dep
 
 `dep` is a prototype dependency management tool for Go. It requires Go 1.9 or newer to compile. **`dep` is safe for production use.**
 
-`dep` is the official _experiment_, but not yet the official tool. Check out the [Roadmap](https://github.com/golang/dep/wiki/Roadmap) for more on what this means!
+`dep` is the official _experiment_, but not yet the official tool. Check out the [Roadmap](https://github.com/asticode/dep/wiki/Roadmap) for more on what this means!
 
 For guides and reference materials about `dep`, see [the documentation](https://golang.github.io/dep).
 
 ## Installation
 
-It is strongly recommended that you use a released version. Release binaries are available on the [releases](https://github.com/golang/dep/releases) page.
+It is strongly recommended that you use a released version. Release binaries are available on the [releases](https://github.com/asticode/dep/releases) page.
 
 On MacOS you can install or upgrade to the latest released version with Homebrew:
 
@@ -38,7 +38,7 @@ to the release builds.
 If you're interested in hacking on `dep`, you can install via `go get`:
 
 ```sh
-go get -u github.com/golang/dep/cmd/dep
+go get -u github.com/asticode/dep/cmd/dep
 ```
 
 ## Feedback

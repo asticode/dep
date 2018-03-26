@@ -4,7 +4,7 @@
 
 package gps
 
-import "github.com/golang/dep/gps/internal/pb"
+import "github.com/asticode/dep/gps/internal/pb"
 
 // versionUnifier facilitates cross-type version comparison and set operations.
 type versionUnifier struct {

@@ -13,10 +13,10 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/golang/dep"
-	"github.com/golang/dep/gps"
-	"github.com/golang/dep/gps/pkgtree"
-	"github.com/golang/dep/internal/test"
+	"github.com/asticode/dep"
+	"github.com/asticode/dep/gps"
+	"github.com/asticode/dep/gps/pkgtree"
+	"github.com/asticode/dep/internal/test"
 )
 
 func TestInvalidEnsureFlagCombinations(t *testing.T) {
@@ -161,46 +161,46 @@ func TestValidateUpdateArgs(t *testing.T) {
 		},
 		{
 			name:      "not project root",
-			args:      []string{"github.com/golang/dep/cmd"},
+			args:      []string{"github.com/asticode/dep/cmd"},
 			wantError: errUpdateArgsValidation,
 			wantWarn: []string{
-				"github.com/golang/dep/cmd is not a project root, try github.com/golang/dep instead",
+				"github.com/asticode/dep/cmd is not a project root, try github.com/asticode/dep instead",
 			},
 		},
 		{
 			name:      "not present in lock",
-			args:      []string{"github.com/golang/dep"},
+			args:      []string{"github.com/asticode/dep"},
 			wantError: errUpdateArgsValidation,
 			wantWarn: []string{
-				"github.com/golang/dep is not present in Gopkg.lock, cannot -update it",
+				"github.com/asticode/dep is not present in Gopkg.lock, cannot -update it",
 			},
 		},
 		{
 			name:      "cannot specify alternate sources",
-			args:      []string{"github.com/golang/dep:github.com/example/dep"},
+			args:      []string{"github.com/asticode/dep:github.com/example/dep"},
 			wantError: errUpdateArgsValidation,
 			wantWarn: []string{
 				"cannot specify alternate sources on -update (github.com/example/dep)",
 			},
-			lockedProjects: []string{"github.com/golang/dep"},
+			lockedProjects: []string{"github.com/asticode/dep"},
 		},
 		{
 			name:      "version constraint passed",
-			args:      []string{"github.com/golang/dep@master"},
+			args:      []string{"github.com/asticode/dep@master"},
 			wantError: errUpdateArgsValidation,
 			wantWarn: []string{
-				"version constraint master passed for github.com/golang/dep, but -update follows constraints declared in Gopkg.toml, not CLI arguments",
+				"version constraint master passed for github.com/asticode/dep, but -update follows constraints declared in Gopkg.toml, not CLI arguments",
 			},
-			lockedProjects: []string{"github.com/golang/dep"},
+			lockedProjects: []string{"github.com/asticode/dep"},
 		},
 		{
 			name:      "flags after spec",
-			args:      []string{"github.com/golang/dep@master", "-v"},
+			args:      []string{"github.com/asticode/dep@master", "-v"},
 			wantError: errUpdateArgsValidation,
 			wantWarn: []string{
 				"could not infer project root from dependency path",
 			},
-			lockedProjects: []string{"github.com/golang/dep"},
+			lockedProjects: []string{"github.com/asticode/dep"},
 		},
 	}
 

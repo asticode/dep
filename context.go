@@ -10,8 +10,8 @@ import (
 	"path/filepath"
 	"runtime"
 
-	"github.com/golang/dep/gps"
-	"github.com/golang/dep/internal/fs"
+	"github.com/asticode/dep/gps"
+	"github.com/asticode/dep/internal/fs"
 	"github.com/pkg/errors"
 )
 

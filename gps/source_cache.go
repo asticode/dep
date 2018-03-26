@@ -10,7 +10,7 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/golang/dep/gps/pkgtree"
+	"github.com/asticode/dep/gps/pkgtree"
 )
 
 // singleSourceCache provides a method set for storing and retrieving data about

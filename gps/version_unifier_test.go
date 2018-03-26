@@ -7,7 +7,7 @@ package gps
 import (
 	"testing"
 
-	"github.com/golang/dep/gps/pkgtree"
+	"github.com/asticode/dep/gps/pkgtree"
 )
 
 type lvFixBridge []Version

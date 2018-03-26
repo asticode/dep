@@ -12,7 +12,7 @@ import (
 	"testing"
 	"text/tabwriter"
 
-	"github.com/golang/dep/gps/pkgtree"
+	"github.com/asticode/dep/gps/pkgtree"
 )
 
 func TestHashInputs(t *testing.T) {

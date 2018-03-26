@@ -9,7 +9,7 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/golang/dep/internal/test"
+	"github.com/asticode/dep/internal/test"
 )
 
 func TestSourceManager_InferConstraint(t *testing.T) {

@@ -1,5 +1,5 @@
 [[projects]]
-  name = "github.com/golang/dep"
+  name = "github.com/asticode/dep"
   packages = ["."]
 
 [solve-meta]
